@@ -101,26 +101,24 @@ public class Pantalla2 implements ActionListener{
         
         int posicion= Integer.parseInt(valor);
         
-        this.añadirCantidad(posicion);
-        
-        
-        this.dlm.clear();
-        
-        this.mostrarlista();
        
-        double importe=0;
-        this.getImporte(importe);
         
-        salida.setText("Importe: "+ importe);
+        this.addCantidad(posicion);
+       
+        this.mostrarlista();
+        
+        salida.setText("Importe: "+  this.getImporte());
         
         
     
     }
-    public void añadirCantidad(int posicion){
+    public void addCantidad(int posicion){
             this.listaproductos.get(posicion).cantidad++;
         }
     
     public void mostrarlista(){
+        
+          this.dlm.clear();
          for(int i=0; i< this.listaproductos.size();i++)
         {
             Producto p= this.listaproductos.get(i);
@@ -130,8 +128,8 @@ public class Pantalla2 implements ActionListener{
             
         }
     }
-    public void getImporte(double importe){
-         
+    public double getImporte(){
+           double importe=0;
         for(int i=0; i< this.listaproductos.size();i++)
         {
             Producto p= this.listaproductos.get(i);
@@ -140,5 +138,6 @@ public class Pantalla2 implements ActionListener{
             
             
         }
+        return importe;
     }
 }
