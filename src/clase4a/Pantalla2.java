@@ -26,11 +26,7 @@ public class Pantalla2 implements ActionListener{
     JButton b;
     JList  pantallax;
     JLabel salida;
-    DefaultListModel dlm;
-    double i = 0;
-    double j = 0;
-    double x = 0;
-    double resultado;
+    DefaultListModel dlm;    
     ArrayList <Producto> listaproductos;
     
     public Pantalla2(){
