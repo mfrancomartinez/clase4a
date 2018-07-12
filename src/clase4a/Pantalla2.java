@@ -101,12 +101,27 @@ public class Pantalla2 implements ActionListener{
         
         int posicion= Integer.parseInt(valor);
         
+        this.añadirCantidad(posicion);
         
-        this.listaproductos.get(posicion).cantidad++;
         
         this.dlm.clear();
         
-        for(int i=0; i< this.listaproductos.size();i++)
+        this.mostrarlista();
+       
+        double importe=0;
+        this.getImporte(importe);
+        
+        salida.setText("Importe: "+ importe);
+        
+        
+    
+    }
+    public void añadirCantidad(int posicion){
+            this.listaproductos.get(posicion).cantidad++;
+        }
+    
+    public void mostrarlista(){
+         for(int i=0; i< this.listaproductos.size();i++)
         {
             Producto p= this.listaproductos.get(i);
             
@@ -114,8 +129,9 @@ public class Pantalla2 implements ActionListener{
             
             
         }
-
-       double importe=0;
+    }
+    public void getImporte(double importe){
+         
         for(int i=0; i< this.listaproductos.size();i++)
         {
             Producto p= this.listaproductos.get(i);
@@ -124,26 +140,5 @@ public class Pantalla2 implements ActionListener{
             
             
         }
-        
-        salida.setText("Importe: "+ importe);
-
-    /*
-        if ("1".equals(e.getActionCommand())){
-        i++;
-        dlm.addElement(Double.toString(i)+" x  boligrafos");        
-    }
-    if ("2".equals(e.getActionCommand())){
-        j++;
-        dlm.addElement(Double.toString(j)+" x lápices");
-        
-    }
-    if ("3".equals(e.getActionCommand())){
-        x++;
-        dlm.addElement(Double.toString(x)+" x libretas");
-    }
-    
-    resultado = (i*(1.12) + j + x*(2.1));
-    salida.setText(Double.toString(resultado));
-*/
     }
 }
